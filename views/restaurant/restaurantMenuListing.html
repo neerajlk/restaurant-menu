@@ -1,0 +1,31 @@
+<h3 class="text-center text-uppercase">{{restaurantName}} - Menu</h3>
+<hr>
+<h5 class="text-center" ng-if="MenuList.menu.items.length < 1">No Items Listed for Said Restaurant</h5>
+<div class="row py-3">
+    <div class="col-md-4 col-lg-4 col-sm-6 py-2" ng-repeat="item in MenuList.menu.items">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{item.imgUrl}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{item.name}}</h5>
+                <span class="font-weight-bold">Price: Rs. {{item.price}}</span>
+                <div class="row">
+                    <div class="col text-left text-white">
+                        <span ng-if="item.isVeg == '1'" class="bg-success px-2 py-2">Veg</span>
+                        <span ng-if="item.isVeg == '0'" class="bg-danger px-2 py-2">Non-Veg</span>
+                    </div>
+                    <div class="col text-right text-white">
+                        <span ng-if="item.inStock == '1'" class="bg-success px-2 py-2">In Stock</span>
+                        <span ng-if="item.inStock == '0'" class="bg-danger px-2 py-2">Out of Stock</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-white py-3 text-center">
+        <a class="btn btn-primary" href="#!/restaurant/">Go back</a>
+    </div>
+
+</div>
