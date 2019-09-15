@@ -1,7 +1,8 @@
-<h3 class="text-center">{{restaurantName}} - Menu</h3>
+<h3 class="text-center text-uppercase">{{restaurantName}} - Menu</h3>
+<hr>
 <h5 class="text-center" ng-if="MenuList.menu.items.length < 1">No Items Listed for Said Restaurant</h5>
 <div class="row py-3">
-    <div class="col-md-4 col-lg-4 col-sm-6" ng-repeat="item in MenuList.menu.items">
+    <div class="col-md-4 col-lg-4 col-sm-6 py-2" ng-repeat="item in MenuList.menu.items">
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="{{item.imgUrl}}" alt="Card image cap">
             <div class="card-body">

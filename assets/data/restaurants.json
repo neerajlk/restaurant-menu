@@ -85,7 +85,7 @@
                         "id": 4450719,
                         "name": "Masala dosa",
                         "price": 80,
-                        "isVeg": 0,
+                        "isVeg": 1,
                         "inStock": 0,
                         "imgUrl": "https://im.indiatimes.in/photogallery/2011/Dec/1381982_1437747570.jpg"
 
@@ -94,7 +94,7 @@
                         "id": 4450749,
                         "name": "Veg uttapam",
                         "price": 8000,
-                        "isVeg": 0,
+                        "isVeg": 1,
                         "inStock": 1,
                         "imgUrl": "https://im.indiatimes.in/photogallery/2011/Dec/1381982_1437747570.jpg"
 
@@ -103,7 +103,7 @@
                         "id": 4340719,
                         "name": "Sweet corn soup",
                         "price": 8000,
-                        "isVeg": 0,
+                        "isVeg": 1,
                         "inStock": 1,
                         "imgUrl": "https://im.indiatimes.in/photogallery/2011/Dec/1381982_1437747570.jpg"
 
@@ -121,7 +121,7 @@
             "areaPostalCode": "12",
             "locality": "Vijaya Nagar",
             "isVeg":0,
-            "avgRating": 4.3,
+            "avgRating": 2.3,
             "totalRatings": 355,
             "avgCost":800,
             "cuisines": [
@@ -158,7 +158,7 @@
             "areaPostalCode": "12",
             "locality": "Vijaya Nagar",
             "isVeg":0,
-            "avgRating": 4.3,
+            "avgRating": 3.8,
             "totalRatings": 355,
             "avgCost":600,
             "cuisines": [

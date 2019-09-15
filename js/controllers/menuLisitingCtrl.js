@@ -3,10 +3,11 @@ app.controller('menuLisitingController', function ($scope, $routeParams, Restaur
     $scope.Restaurant = new Restaurant()
     var RestaurantId = $routeParams.restaurantId;
 
+    //get restaurant menu by  restaurant Id
     getMenuList = function () {
         $scope.Restaurant.getMenuById(RestaurantId, function (error, result) {
             if (error) {
-                console.log(error)
+                alert(error)
             }
             else {
                 $scope.MenuList = result
