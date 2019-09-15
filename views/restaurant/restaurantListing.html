@@ -1,39 +1,45 @@
-<h3 class="text-center">Restaurant List</h3>
-
+<h3 class="text-center text-uppercase">Restaurant List</h3>
+<hr>
 <div class="row">
-    <div class="col">
+    <div class="col-md-3 col-lg-3 col-sm-12 py-1">
         <span>Restaurant Name</span>
-        <input type="text" placeholder="Name" ng-model="search.name">
+        <div>
+            <input class="w-100 height-fixed" type="text" placeholder="Name" ng-model="search.name">
+        </div>
     </div>
-    <div class="col">
+    <div class="col-md-3 col-lg-3 col-sm-12 py-1">
         <span>Veg/Non-Veg</span>
         <div>
-            <select class="w-100" ng-model="type">
+            <select class="w-100 height-fixed" ng-model="type">
                 <option ng-value="" disabled>Select Type</option>
                 <option ng-value="1">Veg</option>
                 <option ng-value="0">Non-Veg</option>
             </select>
         </div>
     </div>
-    <div class="col">
+    <div class="col-md-3 col-lg-3 col-sm-12 py-1">
         <span>Cuisines</span>
         <div>
-            <select class="w-100" ng-model="cuisine">
+            <select class="w-100 height-fixed" ng-model="cuisine">
                 <option ng-value="" disabled>Select Type</option>
                 <option ng-repeat="cuisine in cuisines" value="{{cuisine}}">{{cuisine}}</option>
             </select>
         </div>
     </div>
-    <div class="col">
+    <div class="col-md-3 col-lg-3 col-sm-12 py-1">
         <span>Average Cost</span>
-        <input type="number" placeholder="Name" ng-model="avgCost">
-    </div>
-    <div class="col">
         <div>
-            <button class="btn btn-success w-100" ng-click="filterData(type,cuisine,avgCost)">Filter</button>
+            <input class="w-100 height-fixed" type="number" placeholder="Price in Rs." ng-model="avgCost">
         </div>
     </div>
-    <div class="col">
+</div>
+<div class="row py-3">
+    <div class="col-md-6 col-lg-6 col-sm-12 py-1">
+        <div>
+            <button class="btn btn-success w-100" ng-click="getFilteredData(type,cuisine,avgCost)">Filter</button>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 py-1">
         <div>
             <button class="btn btn-danger w-100" ng-click="clearFilters()">Clear Filter</button>
         </div>
@@ -65,7 +71,18 @@
                             <span class="font-weight-bold">{{restaurant.locality}},</span>
                             <span class="font-weight-bold"> {{restaurant.city}},</span>
                             <h6 class="font-weight-bold">
-                                Average Rating : {{restaurant.avgRating}} ({{restaurant.totalRatings}})
+                                Average Rating :
+                                <span ng-if="restaurant.avgRating < 2.5" class="bg-danger text-white px-1 py-1">
+                                    <i class="fas fa-star">{{restaurant.avgRating}}</i>
+                                </span>
+                                <span ng-if="restaurant.avgRating > 2.4 && restaurant.avgRating < 3.5"
+                                    class="bg-warning text-white px-1 py-1">
+                                    <i class="fas fa-star">{{restaurant.avgRating}}</i>
+                                </span>
+                                <span ng-if="restaurant.avgRating > 3.4" class="bg-success text-white px-1 py-1">
+                                    <i class="fas fa-star ">{{restaurant.avgRating}}</i>
+                                </span>
+                                -({{restaurant.totalRatings}})
                             </h6>
                             <span class="font-weight-bold"> Cuisines:</span>
                             <li ng-repeat="cuisine in restaurant.cuisines">{{cuisine}}</li>
