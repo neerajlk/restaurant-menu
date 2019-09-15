@@ -1,0 +1,89 @@
+<h3 class="text-center">Restaurant List</h3>
+
+<div class="row">
+    <div class="col">
+        <span>Restaurant Name</span>
+        <input type="text" placeholder="Name" ng-model="search.name">
+    </div>
+    <div class="col">
+        <span>Veg/Non-Veg</span>
+        <div>
+            <select class="w-100" ng-model="type">
+                <option ng-value="" disabled>Select Type</option>
+                <option ng-value="1">Veg</option>
+                <option ng-value="0">Non-Veg</option>
+            </select>
+        </div>
+    </div>
+    <div class="col">
+        <span>Cuisines</span>
+        <div>
+            <select class="w-100" ng-model="cuisine">
+                <option ng-value="" disabled>Select Type</option>
+                <option ng-repeat="cuisine in cuisines" value="{{cuisine}}">{{cuisine}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col">
+        <span>Average Cost</span>
+        <input type="number" placeholder="Name" ng-model="avgCost">
+    </div>
+    <div class="col">
+        <div>
+            <button class="btn btn-success w-100" ng-click="filterData(type,cuisine,avgCost)">Filter</button>
+        </div>
+    </div>
+    <div class="col">
+        <div>
+            <button class="btn btn-danger w-100" ng-click="clearFilters()">Clear Filter</button>
+        </div>
+    </div>
+</div>
+<div ng-if="RestaurantList.length < 1" class="text-center">No Restaurants</div>
+<div ng-repeat="restaurant in RestaurantList  | filter : search:strict">
+    <!-- new card -->
+    <div class="row px-0 mx-0 bg-darkblue font-italic" id="travel">
+        <div class="col">
+            <div class="card mb-3 mt-1 bg-light text-dark">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 col-md-6 text-center">
+                        <img src="{{restaurant.imgUrl}}" class="img-fluid img-thumbnail">
+                    </div>
+                    <div class="col-sm-12 col-lg-6 col-md-6">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="card-title">{{restaurant.name}}</h4>
+                                </div>
+                                <div class="col text-right text-white">
+                                    <span ng-if="restaurant.isVeg == '1'" class="bg-success px-2 py-2">Veg</span>
+                                    <span ng-if="restaurant.isVeg == '0'" class="bg-danger px-2 py-2">Non-Veg</span>
+                                </div>
+                            </div>
+
+                            <span class="font-weight-bold"> {{restaurant.area}},</span>
+                            <span class="font-weight-bold">{{restaurant.locality}},</span>
+                            <span class="font-weight-bold"> {{restaurant.city}},</span>
+                            <h6 class="font-weight-bold">
+                                Average Rating : {{restaurant.avgRating}} ({{restaurant.totalRatings}})
+                            </h6>
+                            <span class="font-weight-bold"> Cuisines:</span>
+                            <li ng-repeat="cuisine in restaurant.cuisines">{{cuisine}}</li>
+
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <span class="font-weight-bold">Average Cost : Rs. {{restaurant.avgCost}}</span>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-12 text-right">
+                                    <a class="btn btn-info" ng-href="#!/restaurant/{{restaurant['id']}}">View Menu</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- card end -->
+</div>
